@@ -134,11 +134,12 @@ export async function signInWithGithub() {
 
 export async function signInWithGoogle() {
     const origin = (await headers()).get("origin")
+    console.log("Origin => ",origin)
     const supabase = await createClient();
     const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-            redirectTo: `${origin}/auth/callback`
+            redirectTo: `https://supabase-auth-next-app.vercel.app/auth/callback`
         }
     })
 
