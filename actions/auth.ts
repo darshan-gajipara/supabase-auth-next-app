@@ -139,7 +139,7 @@ export async function signInWithGoogle() {
     const { data, error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-            redirectTo: `https://supabase-auth-next-app.vercel.app/auth/callback`
+            redirectTo: `${origin}/auth/callback`
         }
     })
 
